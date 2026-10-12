@@ -1,0 +1,153 @@
+@import "tailwindcss";
+
+@theme {
+  /* Original Branding - Pink/Red Accent (not YouTube Red) */
+  --color-primary: #E91E63;
+  --color-primary-hover: #EC407A;
+  --color-primary-light: #F8BBD0;
+
+  /* Dark Theme Colors */
+  --color-bg: #0D0D0D;
+  --color-surface: #1A1A1A;
+  --color-surface-elevated: #242424;
+  --color-surface-hover: #2A2A2A;
+  --color-border: #333333;
+  --color-border-light: #404040;
+
+  --color-text-primary: #FFFFFF;
+  --color-text-secondary: #AAAAAA;
+  --color-text-muted: #666666;
+
+  /* Player Bar */
+  --color-player-bg: #181818;
+  --color-player-border: #282828;
+
+  /* Sidebar */
+  --color-sidebar-bg: #121212;
+  --color-sidebar-hover: #282828;
+  --color-sidebar-active: #FFFFFF;
+
+  /* Spacing */
+  --spacing-player-height: 90px;
+  --spacing-player-expanded: 100vh;
+  --spacing-sidebar-width: 240px;
+  --spacing-sidebar-collapsed: 72px;
+  --spacing-topbar-height: 64px;
+
+  /* Border Radius */
+  --radius-card: 8px;
+  --radius-button: 500px;
+  --radius-image: 4px;
+
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-normal: 250ms ease;
+  --transition-slow: 350ms ease;
+
+  /* Z-Indices */
+  --z-sidebar: 100;
+  --z-topbar: 200;
+  --z-player: 300;
+  --z-modal: 400;
+  --z-tooltip: 500;
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html,
+  body,
+  #root {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    background-color: var(--color-bg);
+    color: var(--color-text-primary);
+    font-family: 'Roboto', 'Segoe UI', system-ui, sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-border);
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-border-light);
+  }
+
+  ::-webkit-scrollbar-corner {
+    background: transparent;
+  }
+}
+
+@layer utilities {
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-border) transparent;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .animate-slide-up {
+    animation: slideUp var(--transition-normal) forwards;
+  }
+
+  .animate-slide-down {
+    animation: slideDown var(--transition-normal) forwards;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn var(--transition-fast) forwards;
+  }
+
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+}
